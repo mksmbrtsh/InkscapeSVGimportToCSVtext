@@ -16,7 +16,7 @@ public class SAXPars extends DefaultHandler {
 		System.out.println("Start parse XML...");
 		outArrayList = new ArrayList<String>();
 		sb = new StringBuilder();
-		sb.append("id;x;y;size;color;name;lang\n");
+		sb.append("id;x;y;cluster_min;cluster_max;size;color;name;lang;\n");
 		id = 1;
 	}
 
@@ -31,6 +31,10 @@ public class SAXPars extends DefaultHandler {
 			sb.append(atts.getValue("x"));
 			sb.append(';');
 			sb.append(atts.getValue("y"));
+			sb.append(';');
+			sb.append(atts.getValue("cluster_min"));
+			sb.append(';');
+			sb.append(atts.getValue("cluster_max") == null ? 10.0 : atts.getValue("cluster_max"));
 			sb.append(';');
 			String style = atts.getValue("style");
 			for (String s : style.split(";")) {
