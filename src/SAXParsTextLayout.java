@@ -4,7 +4,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class SAXPars extends DefaultHandler {
+public class SAXParsTextLayout extends DefaultHandler implements IcsvRowCreator {
 
 	ArrayList<String> outArrayList;
 	StringBuilder sb;
@@ -13,7 +13,7 @@ public class SAXPars extends DefaultHandler {
 
 	@Override
 	public void startDocument() throws SAXException {
-		System.out.println("Start parse XML...");
+		System.out.println("Start parse labels...");
 		outArrayList = new ArrayList<String>();
 		sb = new StringBuilder();
 		sb.append("id;x;y;cluster_min;cluster_max;size;color;name;lang;\n");
@@ -76,6 +76,11 @@ public class SAXPars extends DefaultHandler {
 
 	@Override
 	public void endDocument() {
-		System.out.println("Stop parse XML...");
+		System.out.println("Stop parse labels...");
+	}
+
+	@Override
+	public ArrayList<String> getArrayList() {
+		return outArrayList;
 	}
 }
