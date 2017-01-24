@@ -16,7 +16,7 @@ public class Main {
 		SAXParserFactory factory = SAXParserFactory.newInstance(); 
 		SAXParser parser = factory.newSAXParser(); 
 		DefaultHandler saxp = new SAXParsIconsLayout(); 
-		File f = new File("c:\\map_v3_12.svg");
+		File f = new File("c:\\map_v3_13.svg");
 		if(f.exists()){
 			parser.parse(f, saxp);
 			FileWriter writer = new FileWriter("output_icons.txt"); 
